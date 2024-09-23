@@ -25,6 +25,8 @@ def contactdata(request):
         return render(request,'contact.html',{'data1':data1})
 def contact(request):
     return render(request,'contact.html')
+def about(request):
+    return render(request,'about.html')
 def register(request):
     return render(request,'registration.html')
 def login(request):
