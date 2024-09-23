@@ -1,0 +1,35 @@
+{% extends 'admin1.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <br><br><br>
+      <div class="card-title"></div>
+    </div>
+    <div class="card-body">
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">PhoneNo</th>
+            <th scope="col">ProductName</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Image</th>
+          </tr>
+        </thead>
+        {% for i in data %}
+          <tbody>
+             <tr>
+              <td>{{i.usercheckout.name}}</td>
+              <td>{{i.usercheckout.email}}</td>
+              <td>{{i.usercheckout.Phone}}</td>
+              <td>{{i.checkoutcart.cartproduct.PName}}</td>
+              <td>{{i.checkoutcart.quantity}}</td>
+              <td><img src="{{i.checkoutcart.cartproduct.PImage.url}}" alt="" width="50px"></td>
+          </tr>
+          </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+{% endblock %}

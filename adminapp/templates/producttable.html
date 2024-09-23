@@ -1,0 +1,38 @@
+{% extends 'admin1.html' %}
+{% block content %}
+<div class="card">
+  <div class="card-header">
+      <br><br><br>
+    <div class="card-title"></div>
+  </div>
+  <div class="card-body">
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">PName</th>
+          <th scope="col">PPrice</th>
+          <th scope="col">Category</th>
+          <th scope="col">PPescription</th>
+          <th scope="col">PImage</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      {% for i in data1 %}
+      <tbody>
+        <tr>
+          <td>{{i.PName}}</td>
+          <td>{{i.PPrice}}</td>
+          <td>{{i.PCat}}</td>  
+          <td>{{i.PDescription}}</td>
+          <td><img src="{{i.PImage.url}}" alt="" width="60px"></td>
+          <td><a href="{% url 'edit1' id=i.id %}"><button>edit</button></a></td>
+          <td><a href="{% url 'delete1' id=i.id %}"><button>delete</button></a></td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock %}

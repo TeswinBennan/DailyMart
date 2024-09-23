@@ -1,0 +1,28 @@
+{% extends 'user1.html' %}
+{% block content %}
+<div class="p-5 bg-light rounded">
+    <div class="row g-4">
+        <div class="col-12"><br><br>
+            <div class="text-center mx-auto" style="max-width: 500px;">
+                <!-- <h1 class="text-primary">Get in touch</h1> -->
+                <p class="mb-4"></p>
+            </div><br><br>
+            <div>
+            <center><h1 class="text-primary display-6">REGISTRATION_FORM</h1></center>
+        </div>
+        </div>
+        <center>
+        <div class="col-lg-7">
+            <form action="{% url 'regdata' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" class="w-100 form-control border-0  mb-4" name="Name" placeholder="Your Name">
+                <input type="email" class="w-100 form-control border-0  mb-4" name="email" placeholder="Enter Your Email">
+                <input type="password" class="w-100 form-control border-0 mb-4" rows="5" cols="10" name="password" placeholder="Your Password">
+                <input type="number" class="w-100 form-control border-0 mb-4" rows="5" cols="10" name="Phone" placeholder="Your Phone number">
+                <button class="w-100 btn form-control border-secondary  bg-white text-primary " type="submit">Submit</button>
+            </form>
+        </div>
+    </center>
+    </div>
+</div>
+{% endblock %}

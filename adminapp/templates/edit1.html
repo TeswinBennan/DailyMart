@@ -1,0 +1,53 @@
+{% extends 'admin1.html' %}
+{% block content %}
+
+<div class="card-body">
+    <div class="row" >
+      <div class="col-md-6 col-lg-4">
+        <br><br><br><br>
+        <h3><b>Add product</b></h3>
+        {% for i in data1 %}
+        <form action="{% url 'update1' id=i.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+        <div class="form-group">  
+          <label for="email2">PName</label>
+          <input type="text" class="form-control"  value="{{i.PName}}" name="PName" placeholder="Enter name">
+        </div>
+        <div class="form-group">  
+            <label for="">PPrice</label>
+            <input type="text" class="form-control" value="{{i.PPrice}}" name="PPrice" placeholder="Enter name">
+          </div>
+          <div class="form-group">  
+            <label for="email2">PCat</label>
+            <input type="text" class="form-control" value="{{i.PCat}}"  name="PCat" placeholder="Enter name">
+            <select name="CName">
+                {% for i in data %}
+               <option value="{{i.CName}}">{{i.CName}}</option>
+               {% endfor %}
+               </select>
+          </div>
+          <div class="form-group">  
+            <label for="email2">PDescription</label>
+            <input type="text" class="form-control" value="{{i.PDescription}}"  name="PDescription" placeholder="Enter Description">
+          </div>
+        <div class="form-group">
+        <label for="">PImage</label>
+        <div class="input-group">
+          <div class="custom-file">
+            <input type="file" class="form-control" value="{{i.PImage.url}}" name="PImage" id="exampleInputFile">
+            <label class="custom-file-label" for="exampleInputFile"></label>
+          </div>
+        </div>
+      </div>
+      
+        <div class="form-group">
+           <button type="submit" class="form-control">Submit</button>
+          </div>
+        </form>
+        {% endfor %}
+   
+      </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'admin1.html' %}
+{% block content %}
+
+<div class="card-body">
+    <div class="row" >
+      <div class="col-md-6 col-lg-4">
+        <br><br><br><br>
+        <h3><b>Category</b></h3>
+        <form action="productdata" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="form-group">  
+          <label for="email2">PName</label>
+          <input type="text" class="form-control"  name="PName" placeholder="Enter name">
+        </div>
+        <div class="form-group">  
+            <label for="">PPrice</label>
+            <input type="text" class="form-control"  name="PPrice" placeholder="Enter name">
+          </div>
+          <div class="form-group">  
+            <label for="email2">PCat</label>
+            <input type="text" class="form-control"  name="PCat" placeholder="Enter name">
+            <select name="CName">
+                {% for i in data %}
+               <option>{{i.CName}}</option>
+               {% endfor %}
+               </select>
+          </div>
+          <div class="form-group">  
+            <label for="email2">PDescription</label>
+            <input type="text" class="form-control"  name="PDescription" placeholder="Enter name">
+          </div>
+        <div class="form-group">
+        <label for="">PImage</label>
+        <div class="input-group">
+          <div class="custom-file">
+            <input type="file" class="form-control" name="PImage" id="exampleInputFile">
+            <label class="custom-file-label" for="exampleInputFile"></label>
+          </div>
+        </div>
+      </div>
+        <div class="form-group">
+           <button type="submit" class="form-control">Submit</button>
+          </div>
+    </form>
+
+</div>
+</div>
+</div>
+{% endblock %}

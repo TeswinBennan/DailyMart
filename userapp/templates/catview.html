@@ -1,0 +1,24 @@
+{% extends 'user1.html' %}
+{% block content %}
+<br><br><br><br>
+<br><br>
+<div class="row g-4 justify-content-center" >
+   {% for i in data %}
+    <div class="col-md-6 col-lg-4" style="margin-left: 10px;">
+        <div class="rounded position-relative fruite-item" style="margin-top: 30px;">
+            <div class="fruite-img">
+                <img src="{{ i.CImage.url }}" class="img-fluid w-100 rounded-top" alt="" style="height: 250px;">
+            </div>
+            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{i.CName}}</div>
+            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+            <h4>{{i.CName}}</h4>
+            <div class="d-flex justify-content-between flex-lg-wrap">
+                <a href="{% url 'products' category=i.CName %}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i>View Products</a>
+            </div>
+            </div>
+            
+        </div>
+    </div> 
+    {% endfor %}   
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'admin1.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <br><br><br>
+      <div class="card-title"></div>
+    </div>
+    <div class="card-body">
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">Postcode</th>
+          </tr>
+        </thead>
+       
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.country}}</td>
+            <td>{{i.city}}</td>
+            <td>{{i.postcode}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      
+      </table>
+    </div>
+  </div>
+{% endblock %}

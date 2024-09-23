@@ -1,0 +1,69 @@
+{% extends 'user1.html' %}
+{% block content %}
+{% load static %}
+<br><br>
+<br><br>
+<br><br>
+<br>
+{% for i in data2 %}
+<div class="row g-4" margin-left="60px">
+    <div class="col-lg-4">
+        <div class="border rounded" style="display: flex; justify-content: flex-end;margin-left: 75px;">
+            
+                <img src="{{i.PImage.url}}" class="img-fluid rounded" alt="" width="500px" style="margin-left: 30px;">
+            </a>
+        </div>
+    </div>
+    
+    <div class="col-lg-6">
+        <h4 class="fw-bold mb-3">{{i.PName}}</h4>
+        <h5 class="fw-bold mb-3">$ {{i.PPrice}}</h5>
+        <div class="p-5 bg-light rounded">
+            <div class="row g-4">
+                <div class="col-lg-9">
+                    <form action="{% url 'cartdata1' id=i.id %}" method="POST">
+                        {% csrf_token %}
+                   <input type="number" id="quantity" value="1" class="w-100 form-control border-0 py-3 mb-4" name="quantity" min="1" max="100" >
+                   <input type="hidden" id="price" class="w-100 form-control border-0 py-3 mb-4" rows="5" cols="10" name="" value="{{i.PPrice}}" >
+                        <input type="number" class="w-100 form-control border-0 py-3 mb-4" rows="5" cols="10" id="total" name="total" value="{{i.PPrice}}" >
+                    
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+            
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+                <script>
+                    $(document).ready(function()
+                    {
+                        $('#quantity').on('change', function(){
+                            var quantity=$('#quantity').val();
+                            var price=$('#price').val();
+                            var total=parseInt(quantity)*parseInt(price);
+                            $('#total').val(total);
+                        })
+                    })
+                </script>
+            </div>
+        </div>
+   
+        <div class="input-group quantity mb-5" style="width: 100px;">
+        </div>
+        <button  class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary" <a href="{% url 'cart'  %}"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a></button>
+    </div>
+</form>
+</div>
+    <div class="col-lg-12">
+        <nav>
+            <div class="nav nav-tabs mb-3">
+                <button class="nav-link active border-white border-bottom-0" type="button" role="tab" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about" aria-controls="nav-about" aria-selected="true">Description</button>
+            </div>
+        </nav>
+        <div class="tab-content mb-5" style="margin-left: 40px;">
+            <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                <p>{{i.PDescription}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

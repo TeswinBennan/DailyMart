@@ -1,0 +1,31 @@
+{% extends 'admin1.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <br><br><br>
+      <div class="card-title"></div>
+    </div>
+    <div class="card-body">
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">CName</th>
+            <th scope="col">CImage</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        {% for i in data %}
+        <tbody>
+          <tr>
+            <td>{{i.CName}}</td>
+            <td><img src="{{i.CImage.url}}" alt="" width="60px"></td>
+            <td><a href="{% url 'edit' id=i.id %}"><button>edit</button></a></td>
+            <td><a href="{% url 'delete' id=i.id %}"><button>delete</button></a></td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+{% endblock %}

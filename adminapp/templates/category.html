@@ -1,0 +1,32 @@
+{% extends 'admin1.html' %}
+{% block content %}
+
+<div class="card-body">
+    <div class="row" ">
+      <div class="col-md-6 col-lg-4">
+        <br><br><br><br>
+        <h3><b>Category</b></h3>
+        <form action="{% url 'catdata' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="form-group">  
+          <label for="email2">CName</label>
+          <input type="text" class="form-control"  name="CName" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+        <label for="">CImage</label>
+        <div class="input-group">
+          <div class="custom-file">
+            <input type="file" class="form-control" name="CImage" id="exampleInputFile">
+            <label class="custom-file-label" for="exampleInputFile"></label>
+          </div>
+        </div>
+      </div>
+        <div class="form-group">
+           <button type="submit" class="form-control">Submit</button>
+          </div>
+    </form>
+
+</div>
+</div>
+</div>
+{% endblock %}

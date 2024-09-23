@@ -1,0 +1,41 @@
+{% extends 'user1.html' %}
+{% block content %}
+<br><br><br><br><br>
+<div class="col-lg-6" style="margin-left: 20px;">
+    <i class="bi bi-exclamation-triangle display-1 text-secondary"></i>
+    <h1 class="display-1">sucess</h1>
+    
+    <p class="mb-4">THANK YOU FOR CHOOSING DAILYMART</p>
+    <div class="card-body" style="text-align: center;">
+        <table class="table mt-3" style="margin-left: 350px;height: 500px;width: 800px;" >
+          <thead>
+            <tr>    
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">PhoneNo</th>
+            <th scope="col">ProductName</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+            <th scope="col">Image</th>
+        </tr>
+
+          </thead>
+          {% for i in data %}
+          <tbody>
+             <tr>
+              <td>{{i.usercheckout.name}}</td>
+              <td>{{i.usercheckout.email}}</td>
+              <td>{{i.usercheckout.Phone}}</td>
+              <td>{{i.checkoutcart.cartproduct.PName}}</td>
+              <td>{{i.checkoutcart.quantity}}</td>
+              <td>{{i.checkoutcart.total}}</td>
+              <td><img src="{{i.checkoutcart.cartproduct.PImage.url}}" alt="" width="50px"></td>
+          </tr>
+          </tbody>
+        {% endfor %}
+          
+        </table>
+      </div>
+    <a class="btn border-secondary rounded-pill py-3 px-5" href="{% url 'user1' %}">Go Back To Home</a>
+</div>
+{% endblock %}
